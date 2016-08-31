@@ -1,0 +1,1 @@
+https://mwstaticresponses.herokuapp.com/
