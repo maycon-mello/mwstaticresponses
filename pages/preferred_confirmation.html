@@ -178,7 +178,7 @@
 .aa_aa_FloatRightM {float:right;margin-right:30px;}
 .aa_aap_DisplayNone {display:none;}
 </style>
-<link rel="stylesheet" type="text/css" href="//backoffice.plexusworldwide.com/Application/skins/skin01/css/style.css" title="style1">
+<link rel="stylesheet" type="text/css" href="skins/skin01/css/style.css" title="style1">
 <script language="JavaScript">
 function popUp(url, width, height) {
 sealWin=window.open(url,"win",'toolbar=0,location=0,directories=0,status=1,menubar=1,scrollbars=1,resizable=1,width=' + width + ',height=' + height);
@@ -203,11 +203,11 @@ else
 </head>
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
 <div id="bg">
-<img src="//backoffice.plexusworldwide.com/Application/skins/skin01/images/bg.jpg" alt="">
+<img src="https://backoffice.plexusworldwide.com/Application/skins/skin01/images/bg.jpg" alt="">
 </div>
 <div id="Header">
 <div id="logo">
-<a href="http://backoffice.plexusworldwide.com"><img src="//backoffice.plexusworldwide.com/Application/skins/skin01/images/logo.png" alt="Plexus" border="0"></a>
+<a href="http://backoffice.plexusworldwide.com"><img src="https://backoffice.plexusworldwide.com/Application/skins/skin01/images/logo.png" alt="Plexus" border="0"></a>
 </div>
 <div id="order-total">
 </div>
@@ -225,672 +225,186 @@ else
 <li class="bc_highlight"><a>Personal Info</a></li>
 <li class="bc_highlight"><a>Order Summary</a></li>
 <li class="bc_highlight"><a>Payment Info</a></li>
-<li class="transparent_class"><a>Confirmation</a></li>
+<li class="bc_highlight"><a>Confirmation</a></li>
 </ul>
 </div>
 <div class="Wrapper" id="Wrapper">
 <div class="MainContent">
-<h2>Payment Information</h2>
-<form id="PaymentInformationTop" method="post" action="index.cfm">
-<input type="hidden" name="Fuseaction" value="ApplicationPayment.DisplayPaymentInformation">
-<input type="hidden" id="PaymentInformationToDisplay" name="PaymentInformationToDisplay" value="">
-<label>Select Payment Method:</label>
-<select id="PaymentSelectorTop" name="PaymentSelectorTop" onchange="SelectPaymentForm();">
-<option value="creditcard" selected="">Credit Card</option>
-<option value="echeck">E-Check</option>
-</select>
-</form>
-<script>
-function SelectPaymentForm()
-{
-if (document.getElementById("PaymentSelectorTop").value == "creditcard")
-{
-document.getElementById("PaymentInformationToDisplay").value = "creditcard";
-}
-else
-{
-document.getElementById("PaymentInformationToDisplay").value = "other";
-}
-document.getElementById("PaymentInformationTop").submit();
-}
-</script>
 <style>
-.PPCC_PaymentInformationTitle { float:left;}
-.PPCC_PaymentInformationBreak {float:left;margin:6px 0px 0px 10px;}
-.PPCC_AgreeUseCardRenewal {padding-bottom:10px; float:right; } /*wf 102813*/
-.PPCC_ExpMonth {width:40px}
-.PPCC_ExpYear {width:50px}
-.PPCC_ExpDivider {margin:6px 0}
-.PPCC_CVVHelpTable {padding-left: 20px;}
-.PPCC_ProcessOrderButtonRow {float:left;margin-left:30px;}
-.CreditCardTable td{text-align:left;width:auto;}
+.ac_ac_RhtPadMar {
+float:right;
+padding:10px;
+margin:10px;
+}
+.ac_ac_LftPad {
+float:left;
+padding:10px;
+}
+.ac_ac_Bold {
+font-weight:bold;
+}
+.ac_ac_WthHgtA {
+width:550px;
+height:46px;
+}
+.ac_ac_WthHgtB {
+width:900px;
+height:46px;
+}
+.ac_ac_Left {
+float:left;
+}
+.ac_ac_LftMarA {
+float:left;
+margin:6px 0px 0px 10px;
+}
+.ac_ac_LftMarB {
+float:left;
+margin:16px 0px 0px 10px;
+}
+.ac_ac_LftWidA {
+float:left;
+width:550px;
+}
+.ac_ac_LftWidB {
+float:left;
+width:900px;
+}
 </style>
-<script>
-var processinglog = false;
-function logHit(url) {
-var waittime = (typeof arguments[1] == 'undefined' || arguments[1] == '') ? 7 : arguments[1];
-var parameters = '';
-var http_request = false;
-// passed returned function
-var fname = (typeof arguments[2] == 'undefined') ? '' :arguments[2]; //arg string for return function
-var newargs = Array.prototype.slice.call(arguments); //copy arguments
-//remove first three elements. The rest will be args to pass to return function.
-newargs.shift();
-newargs.shift();
-newargs.shift();
-if (processinglog == false) {
-processinglog = true;
-setTimeout("processinglog = false",waittime * 1000); //Let them submit again after a while
-if (window.XMLHttpRequest) { // Mozilla, Safari,...
-http_request = new XMLHttpRequest();
-if (http_request.overrideMimeType) {
-http_request.overrideMimeType('text/html');
-}
-} else if (window.ActiveXObject) { // IE
-try {
-http_request = new ActiveXObject("Msxml2.XMLHTTP");
-} catch (e) {
-try {
-http_request = new ActiveXObject("Microsoft.XMLHTTP");
-} catch (e) {}
-}
-}
-if (!http_request) {
-//alert('Cannot create XMLHTTP instance');
-return false;
-}
-//http_request.onreadystatechange = alertContents;
-http_request.onreadystatechange = function () {
-if (http_request.readyState == 4) {
-if (http_request.status == 200) {
-result = http_request.responseText;
-//alert('Result: '+result);
-if (fname) {
-fname.apply(null, [result].concat(newargs)); //for return function, use arguments[0] (or result), arguments[1] (can't use fargs though)
-}
-} else if (http_request.status != 0) {
-//alert('There was a problem with the request.');
-}
-}
-}
-http_request.open('GET', url, true);
-http_request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-http_request.setRequestHeader( "If-Modified-Since", "Sat, 1 Jan 2000 00:00:00 GMT" ); //for IE caching
-http_request.send(parameters);
-return false;
-} else {
-//alert("Processing. Please wait.");
-}
-}
-var processing = false;
-function check_form_submit(formname) {
-var waittime = (typeof arguments[1] == 'undefined') ? 7 : arguments[1];
-if (processing == false) {
-processing = true;
-setTimeout("processing = false",waittime * 1000); //Let them submit again after a while
-document.forms[formname].submit();
-} else {
-alert("Processing. Please wait.");
-}
-}
-</script>
-<script>
-Processing=0;
-function checkCC(frm) {
-var ccNum = frm.CardNumber.value;
-var cvv = frm.CVV.value;
-var em = frm.ExpMonth.value;
-var ey = frm.ExpYear.value;
-var chn = frm.CardHolderName.value;
-var pit = document.getElementById('PaymentTypeId');
-var valid = 0;
-var errs='';
-/* START WF: 97921 - Chris H */
-if (document.getElementById("BillAddress1")) {
-document.getElementById("BillAddress1").style.border = "1px solid rgb(187,187,187)";
-}
-if (document.getElementById("BillCity")) {
-document.getElementById("BillCity").style.border = "1px solid rgb(187,187,187)";
-}
-if (document.getElementById("BillState")) {
-document.getElementById("BillState").style.border = "1px solid rgb(187,187,187)";
-}
-if (document.getElementById("BillPostalCode")) {
-document.getElementById("BillPostalCode").style.border = "1px solid rgb(187,187,187)";
-}
-if (document.getElementById("BillPhone")) {
-document.getElementById("BillPhone").style.border = "1px solid rgb(187,187,187)";
-}
-if (document.getElementById("CardNumber")) {
-document.getElementById("CardNumber").style.border = "1px solid rgb(187,187,187)";
-}
-if (document.getElementById("CVV")) {
-document.getElementById("CVV").style.border = "1px solid rgb(187,187,187)";
-}
-if (document.getElementById("ExpMonth")) {
-document.getElementById("ExpMonth").style.border = "1px solid rgb(187,187,187)";
-}
-if (document.getElementById("ExpYear")) {
-document.getElementById("ExpYear").style.border = "1px solid rgb(187,187,187)";
-}
-if (document.getElementById("CardHolderName")) {
-document.getElementById("CardHolderName").style.border = "1px solid rgb(187,187,187)";
-}
-/* END WF: 97921 */
-$('#CardErrors').html('');
-if (ccNum.match(/^4[0-9]{12}(?:[0-9]{3})?$/)) {
-pit.value = "Visa";
-valid = 1;
-} else if (ccNum.match(/^5[1-5][0-9]{14}$/)) {
-pit.value = "Mastercard";
-valid = 1;
-} else if (ccNum.match(/^3[47][0-9]{13}$/)) {
-pit.value = "AMEX";
-valid = 1;
-} else if (ccNum.match(/^6(?:011|5[0-9]{2})[0-9]{12}$/)) {
-pit.value = "Discover";
-valid = 1;
-} else {
-errs+='Please enter a valid credit card.<br>';
-document.getElementById("CardNumber").style.border = "1px solid red"; /* WF: 97921 */
-}
-if (cvv == '' || cvv.match(/[^0-9]/)) {
-valid = 0;
-errs+='Please enter a valid Verification Code.<br>';
-document.getElementById("CVV").style.border = "1px solid red";  /* WF: 97921 */
-}
-if (ey < 16 || (ey == 16 && em < 8)) {
-valid = 0;
-errs+='Please select a valid Expiration Date.<br>';
-document.getElementById("ExpMonth").style.border = "1px solid red"; /* WF: 97921 */
-document.getElementById("ExpYear").style.border = "1px solid red";  /* WF: 97921 */
-} else {
-frm.ExpMonth.value = ('0' + em).slice(-2);
-}
-if (chn == '') {
-valid = 0;
-errs+='Please enter a Card Holders Name.<br>';
-document.getElementById("CardHolderName").style.border = "1px solid red"; /* WF: 97921 */
-}
-/* START WF: 97921 - Chris H */
-if (errs != '') {
-document.getElementById("CardErrors").scrollIntoView();
-}
-/* END WF: 97921 */
-if (valid && Processing == 0) {
-Processing=1;
-var logURL = document.getElementById('logSubmit').value;
-if (cvv) { logURL += "&CCVCode="+cvv; }
-logHit(logURL,7,myNextSubmit);
-}
-$('#CardErrors').html(errs);
-return false;
-}
-function myNextSubmit() { //callback from ajax hit
-/* var pattern = /PASS/;
-if (result.match(pattern) != null) {
-} */
-setTimeout("check_form_submit('infopage')",100);
-}
-function billSubmit(frm) {
-$('#BillErrors').html('');
-return ajaxPostForm('index.cfm?Fuseaction=ApplicationPayment.AjaxBillingAddress',frm,billSubmitReturn);
-}
-function billSubmitReturn() {
-var pattern = /PASS:{([^}]*)}/;
-var matches=result.match(pattern);
-if (matches != null) {
-var varlist=matches[1].split('&');
-for (i=1;i<varlist.length;i++){
-var vinf = varlist[i].split('=');
-$('#'+vinf[0]).val(unescape(vinf[1]));
-}
-checkCC(document.getElementById('infopage'));
-} else {
-$('#BillErrors').html(result);
-document.getElementById("BillErrors").scrollIntoView(); /* WF: 97921 - Chris H */
-}
-//if success, submit credit card form
-}
-</script>
-<div class="OA_PaymentText">Please enter the billing information for your order.</div>
-<div id="CardErrors" class="Error"></div>
-<div id="BillErrors" class="Error"></div> 
-<form action="https://protectpay.propay.com/pmi/spr.aspx" name="infopage" id="infopage" method="Post">
-<input type="hidden" name="CID" value="54856875">
-<input type="hidden" name="SettingsCipher" value="aGmQzhpQ9GRUUvRM2j05Zaw87uSJ0ho7V2AFdd+xTauPD5PD+U9VJA6MOY+f+hpl5n0EkDIuEi2R3IEfs/AHW7tLth9J2sBAB+qfL+XStFTvBKpYs9hPmgKdmoL1sOcwfqy845tusojWZBFAlJH36nK1wXsmhh4FXY9KbJsJscCuFnWuW1iRHz9qu1792H3T6OAmPN8MS5A1i835TILPo3MMS8ie0erQaOMv0MkYX9sk19LEHaj7zZbp7j4i++yXAqNeJY0BxAduQjaLCvNbnLqBzI6bdqNoFKmciBTe7e0e7kFnG580MD0BU96V2WiNhQNES9vtLAKVjMehOhaK2SgWqwJywOc1EOM8yKp1bBUXNYbTSBw8hTwkgGNcLLXbCCI/GZPvJbSSsjxUb9+S3OMYQF9goKPWgi2OiYqFOWq250q4v051ggK21MZ0g4tJoLtasTXVIREQ3wV6PiPk2Q==">
-<input type="hidden" name="Address1" id="Address1" value="">
-<input type="hidden" name="Address2" id="Address2" value="">
-<input type="hidden" name="Address3" id="Address3" value="">
-<input type="hidden" name="Country" id="Country" value="">
-<input type="hidden" name="City" id="City" value="">
-<input type="hidden" name="State" id="State" value="">
-<input type="hidden" name="PostalCode" id="PostalCode" value="">
-<div class="SectionDivider">
-<div class="sectionTitle PPCC_PaymentInformationTitle">Payment Information</div>
-<div class="PPCC_PaymentInformationBreak"></div>
-<br clear="all">
+<div id="order_successful" class=" ac_ac_RhtPadMar">
+<h2 class="ReallyBig">Order Successful!</h2>
+<div class="ac_ac_LftPad">
+<span class="ac_ac_Bold">Payment Received</span><br>
+************3843
 </div>
 <br clear="all">
-<div class="sectioncontent">
-<table border="0" cellpadding="5" cellspacing="0" class="CreditCardTable">
-<tbody><tr>
-<td colspan="2" align="center">
-<img src="//backoffice.plexusworldwide.com/Application/Themes/amex.gif" width="43" height="40" alt="American Express">
-<img src="//backoffice.plexusworldwide.com/Application/Themes/discover.gif" width="62" height="40" alt="Disocver">
-<img src="//backoffice.plexusworldwide.com/Application/Themes/mastercard.gif" width="62" height="40" alt="MasterCard">
-<img src="//backoffice.plexusworldwide.com/Application/Themes/visa.gif" width="62" height="40" alt="Visa">
+<br clear="all">
+<div class="ac_ac_LftPad">
+<span class="ac_ac_Bold">Shipping Address</span><br>
+<nobr>test Test </nobr><br> 6039 MS Hwy 415<br> General Delivery<br> Ackerman, MS, 39735<br> United States of America<br> <br>
+</div>
+<div class="ac_ac_LftPad">
+<span class="ac_ac_Bold">Billing Address</span><br>
+<nobr>test Test </nobr><br> 9145 E Pima Center Pkwy<br> Scottsdale, AZ, 85258<br> United States of America<br> <br>
+3234576542<br>
+</div>
+</div>
+<h2 class="ReallyBig">Welcome test Test!</h2>
+<div class="OA_WelcomeDistInfo">  
+Your Preferred Customer ID is <strong>2021889</strong>.
 <br><br>
-</td>
-</tr>
-<input type="hidden" name="PaymentTypeId" id="PaymentTypeId" value="">
-<tr>
-<td align="right" valign="top">Name On Card:</td> 
-<td><input type="text" id="CardHolderName" name="CardHolderName" size="30" maxlength="30" value="" tabindex="1" placeholder=""> <span class="Error">*</span></td> 
-</tr>
-<tr>
-<td align="right" valign="top">Card Number:</td>
-<td><input type="tel" id="CardNumber" name="CardNumber" size="30" value="" tabindex="2" placeholder=""> <span class="Error">*</span></td> 
-</tr>
-<tr>
-<td align="right" valign="top">Expiration Date:</td>
-<td>
-<input type="tel" id="ExpMonth" name="ExpMonth" class="PPCC_ExpMonth" tabindex="3" placeholder="" size="3" maxlength="2"> 
-<span class="PPCC_ExpDivider">/</span>
-<input type="tel" id="ExpYear" name="ExpYear" class="PPCC_ExpYear" tabindex="4" placeholder="" size="5" maxlength="2">  
-<span class="Error">*</span></td> 
-</tr>
-<tr>
-<td align="right">Verification Code:</td>
-<td><input type="tel" id="CVV" name="CVV" class="PPCC_CVV" size="4" maxlength="4" value="" tabindex="5" placeholder=""> <span class="Error">*</span> <a href="javascript:;" id="whatis" data-event="ev" data-category="ApplicationPayment_ProtectPayCreditCardForm" data-label="WhatIsThis" data-action="click">What is this?</a></td>
-</tr>
-<script>
-$("#whatis").tooltip({
-events: { def: "mouseover,mouseleave" },
-offset: [0,350],
-tipClass:'tooltiplarge'
-});
-/* START WF: 101405 - Chris H - add button to close popup window */
-function ToggleCVVHelp(x) {
-var cvvtable = document.getElementById("PPCC_CVVHelpTable");
-if (x == "hide") {
-cvvtable.parentNode.style.display = "none";
-}
-else {
-cvvtable.parentNode.style.display = "block";
-}
-}
-/* END WF: 101405 */
-</script>
-</tbody></table>
-<input type="hidden" name="Name" value="test Test">
-<input type="hidden" name="ReturnURL" value="https%3A%2F%2Fbackoffice%2Eplexusworldwide%2Ecom%2FApplication%2Findex%2Ecfm%3FFuseAction%3DApplicationPayment%2EProcessProtectPayCCForm%26FromProtectPay%3D1">
-<input type="hidden" name="PayButton" value="Continue">
-<input type="Hidden" name="CC_AMT" value="152.47">
+Your Username is <strong>test123932</strong>.
+Please retain for your records. It is very important and you will use it to log in to your Evo.
+</div>  
+<div class="SectionDivider ac_ac_WthHgtA">
+<div class="sectionTitle ApplicationCompleteInstructionHeader ac_ac_Left">
+Evo Instructions
 </div>
-</form>
-<form action="index.cfm" method="Post" id="billform" name="billform" onsubmit="return billSubmit(this);">
-<input type="hidden" name="SAVE_PAYMENT" value="Y">
-<div>
-<div class="sectionTitle PPCC_BillingInformationTitle">
-Billing Information (as it appears in your statement)
+<div class="ac_ac_LftMarA">
 </div>
-<div class="PPCC_PaymentInformationBreak"></div>
 <br clear="all">
 </div>
-<div class="sectioncontent">
-<label>
-<input type="checkbox" name="BillSameAsShip" id="BillSameAsShip" value="1" onclick="copybillingaddress(this.checked);" data-event="ev" data-category="ApplicationPayment" data-label="CopyBillingAddr" data-action="click">
-My billing address is the same as my shipping address
-</label>
-<br>
-<div id="BillingAddressSection">
-<style>
-.af_mam_MarLft {
-margin-left:108px;
-}
-.af_mam_PadBtm {
-padding-bottom:10px
-}
-</style>
-<div class="form-top">
-<div class="form-row clearfix">
-<div class="form-left-col">
-<label>Address:</label>
-</div>
-<div class="form-right-col">
-<input type="text" class="create-account-input" name="BillAddress1" id="BillAddress1" value="" size="32" maxlength="45" autocomplete="address-line1" placeholder=""><span class="Error">*</span>  
-</div>
-</div>
-</div>
-<div class="form-top">
-<div class="form-row clearfix">
-<div class="form-left-col">
-<label>(line 2):</label>
-</div>
-<div class="form-right-col">
-<input type="text" class="create-account-input" name="BillAddress2" id="BillAddress2" value="" size="32" maxlength="45" autocomplete="address-line2" placeholder="">
-</div>
-</div>
-</div>
-<div class="form-top">
-<div class="form-row clearfix">
-<div class="form-left-col">
-<label>City:</label>
-</div>
-<div class="form-right-col">
-<input type="text" class="create-account-input" name="BillCity" id="BillCity" value="" size="32" maxlength="45" placeholder=""><span class="Error">*</span> 
-</div>
-</div>
-</div>
-<div class="form-top">
-<div class="form-row clearfix">
-<div class="form-left-col">
-<label>State:</label>
-</div>
-<div class="form-right-col">
-<div class="inputtitle af_mam_PadBtm">
-<select name="BillState" id="BillState">  
-<option value="AL">Alabama
-</option><option value="AK">Alaska
-</option><option value="AS">American Samoa
-</option><option value="AZ">Arizona
-</option><option value="AR">Arkansas
-</option><option value="AE">Armed Forces Africa (AE)
-</option><option value="AA">Armed Forces Americas (AA)
-</option><option value="AE">Armed Forces Canada (AE)
-</option><option value="AE">Armed Forces Europe (AE)
-</option><option value="AE">Armed Forces Middle East (AE)
-</option><option value="AP">Armed Forces Pacific (AP)
-</option><option value="CA">California
-</option><option value="CO">Colorado
-</option><option value="CT">Connecticut
-</option><option value="DE">Delaware
-</option><option value="DC">District of Columbia
-</option><option value="FL">Florida
-</option><option value="GA">Georgia
-</option><option value="GU">Guam
-</option><option value="HI">Hawaii
-</option><option value="ID">Idaho
-</option><option value="IL">Illinois
-</option><option value="IN">Indiana
-</option><option value="IA">Iowa
-</option><option value="KS">Kansas
-</option><option value="KY">Kentucky
-</option><option value="LA">Louisiana
-</option><option value="ME">Maine
-</option><option value="MD">Maryland
-</option><option value="MA">Massachusetts
-</option><option value="MI">Michigan
-</option><option value="MN">Minnesota
-</option><option value="MS">Mississippi
-</option><option value="MO">Missouri
-</option><option value="MT">Montana
-</option><option value="NE">Nebraska
-</option><option value="NV">Nevada
-</option><option value="NH">New Hampshire
-</option><option value="NJ">New Jersey
-</option><option value="NM">New Mexico
-</option><option value="NY">New York
-</option><option value="NC">North Carolina
-</option><option value="ND">North Dakota
-</option><option value="OH">Ohio
-</option><option value="OK">Oklahoma
-</option><option value="OR">Oregon
-</option><option value="PA">Pennsylvania
-</option><option value="PR">Puerto Rico
-</option><option value="RI">Rhode Island
-</option><option value="SC">South Carolina
-</option><option value="SD">South Dakota
-</option><option value="TN">Tennessee
-</option><option value="TX">Texas
-</option><option value="UT">Utah
-</option><option value="VT">Vermont
-</option><option value="VI">Virgin Islands
-</option><option value="VA">Virginia
-</option><option value="WA">Washington
-</option><option value="WV">West Virginia
-</option><option value="WI">Wisconsin
-</option><option value="WY">Wyoming
-</option></select><span class="Error">*</span><br>
-</div>
-</div>
-</div>
-</div>
-<div class="form-top">
-<div class="form-row clearfix">
-<div class="form-left-col">
-<label>Postal Code:</label>
-</div>
-<div class="form-right-col">
-<input type="tel" class="create-account-input" name="BillPostalCode" id="BillPostalCode" value="" size="12" maxlength="12" placeholder=""><span class="Error">*</span>
-</div>
-</div>
-</div>
-<div class="form-top">
-<div class="form-row clearfix">
-<div class="form-left-col">
-<label>Country:</label>
-</div>
-<div class="form-right-col OA_CountryText"> 
-<input type="hidden" name="BillCountry" id="BillCountry" value="USA" placeholder="">
-United States
-</div>
-</div>
+<div class="sectioncontent ac_ac_LftWidA">
+You can log in to your Backoffice by clicking on the link below. Your username is the Preferred Customer ID given at the top of this page. Your password is the one you chose earlier while signing up.
+<div id="vologin">
+<div id="vologtxt"><a href="/index.cfm?Fuse=ProcessLogin&amp;key=22IN%5CNP6K%23%2C35WQ%5E148Y%2FS%27S%3C%0A">Log in Now!</a></div>
 </div>
 </div>
 <br clear="all">
-<div class="InputLabel">Phone:</div>
-<div class="InputField">
-<input type="tel" name="BillPhone" id="BillPhone" value="" size="18" placeholder=""><span class="Error">*</span>
-<br><span class="SmallFont">Use 10 digit number OR (999) 999-9999</span>
+<div class="SectionDivider ac_ac_WthHgtA">
+<div class="sectionTitle ac_ac_Left">
+Confirmation Order #85271393
+</div>
+<div class="ac_ac_LftMarA">
 </div>
 <br clear="all">
-<div class="InputLabel">Email:</div>
-<div class="InputField">
-<input type="text" name="BillEmail" id="BillEmail" value="" size="30" placeholder="">
 </div>
-<br clear="all"><br>
-<div style="display:none">
+<div class="sectioncontent ac_ac_LeftWidB">
 <style>
-.af_mam_MarLft {
-margin-left:108px;
-}
-.af_mam_PadBtm {
-padding-bottom:10px
+.ac_ao_PadLft {
+padding-left: 15px;
 }
 </style>
-<div class="form-top">
-<div class="form-row clearfix">
-<div class="form-left-col">
-<label>Address:</label>
-</div>
-<div class="form-right-col">
-<input type="text" class="create-account-input" name="ShipAddress1" id="ShipAddress1" value="201 Spear St Fl 3" size="32" maxlength="45" autocomplete="address-line1" placeholder=""><span class="Error">*</span> 
-</div>
-</div>
-</div>
-<div class="form-top">
-<div class="form-row clearfix">
-<div class="form-left-col">
-<label>(line 2):</label>
-</div>
-<div class="form-right-col">
-<input type="text" class="create-account-input" name="ShipAddress2" id="ShipAddress2" value="" size="32" maxlength="45" autocomplete="address-line2" placeholder="">
-</div>
-</div>
-</div>
-<div class="form-top">
-<div class="form-row clearfix">
-<div class="form-left-col">
-<label>City:</label>
-</div>
-<div class="form-right-col">
-<input type="text" class="create-account-input" name="ShipCity" id="ShipCity" value="San Francisco" size="32" maxlength="45" placeholder=""><span class="Error">*</span>  
-</div>
-</div>
-</div>
-<div class="form-top">
-<div class="form-row clearfix">
-<div class="form-left-col">
-<label>State:</label>
-</div>
-<div class="form-right-col">
-<div class="inputtitle af_mam_PadBtm">
-<select name="ShipState" id="ShipState">  
-<option value="AL">Alabama
-</option><option value="AK">Alaska
-</option><option value="AS">American Samoa
-</option><option value="AZ">Arizona
-</option><option value="AR">Arkansas
-</option><option value="AE">Armed Forces Africa (AE)
-</option><option value="AA">Armed Forces Americas (AA)
-</option><option value="AE">Armed Forces Canada (AE)
-</option><option value="AE">Armed Forces Europe (AE)
-</option><option value="AE">Armed Forces Middle East (AE)
-</option><option value="AP">Armed Forces Pacific (AP)
-</option><option value="CA" selected="">California
-</option><option value="CO">Colorado
-</option><option value="CT">Connecticut
-</option><option value="DE">Delaware
-</option><option value="DC">District of Columbia
-</option><option value="FL">Florida
-</option><option value="GA">Georgia
-</option><option value="GU">Guam
-</option><option value="HI">Hawaii
-</option><option value="ID">Idaho
-</option><option value="IL">Illinois
-</option><option value="IN">Indiana
-</option><option value="IA">Iowa
-</option><option value="KS">Kansas
-</option><option value="KY">Kentucky
-</option><option value="LA">Louisiana
-</option><option value="ME">Maine
-</option><option value="MD">Maryland
-</option><option value="MA">Massachusetts
-</option><option value="MI">Michigan
-</option><option value="MN">Minnesota
-</option><option value="MS">Mississippi
-</option><option value="MO">Missouri
-</option><option value="MT">Montana
-</option><option value="NE">Nebraska
-</option><option value="NV">Nevada
-</option><option value="NH">New Hampshire
-</option><option value="NJ">New Jersey
-</option><option value="NM">New Mexico
-</option><option value="NY">New York
-</option><option value="NC">North Carolina
-</option><option value="ND">North Dakota
-</option><option value="OH">Ohio
-</option><option value="OK">Oklahoma
-</option><option value="OR">Oregon
-</option><option value="PA">Pennsylvania
-</option><option value="PR">Puerto Rico
-</option><option value="RI">Rhode Island
-</option><option value="SC">South Carolina
-</option><option value="SD">South Dakota
-</option><option value="TN">Tennessee
-</option><option value="TX">Texas
-</option><option value="UT">Utah
-</option><option value="VT">Vermont
-</option><option value="VI">Virgin Islands
-</option><option value="VA">Virginia
-</option><option value="WA">Washington
-</option><option value="WV">West Virginia
-</option><option value="WI">Wisconsin
-</option><option value="WY">Wyoming
-</option></select><span class="Error">*</span><br>
-</div>
-</div>
-</div>
-</div>
-<div class="form-top">
-<div class="form-row clearfix">
-<div class="form-left-col">
-<label>Postal Code:</label>
-</div>
-<div class="form-right-col">
-<input type="tel" class="create-account-input" name="ShipPostalCode" id="ShipPostalCode" value="94105-6107" size="12" maxlength="12" placeholder=""><span class="Error">*</span>
-</div>
-</div>
-</div>
-<div class="form-top">
-<div class="form-row clearfix">
-<div class="form-left-col">
-<label>Country:</label>
-</div>
-<div class="form-right-col OA_CountryText"> 
-<input type="hidden" name="ShipCountry" id="ShipCountry" value="USA" placeholder="">
-United States
-</div>
-</div>
-</div>
-<style>
-.af_ao_Color {
-color:red;
-}
-</style>
-<input type="hidden" name="ShipEmail" id="ShipEmail" value="xiaopinweweg.li_test@moovweb.com">
-<input type="hidden" name="ShipPhone" id="ShipPhone" value="3234576542">
-</div>
-</div>
-<script>
-function copybillingaddress(ischecked)
-{
-copyaddress('s','b',ischecked);
-if (ischecked)
-{
-$('#BillFirstName').val('test');
-$('#BillLastName').val('Test');
-}
-}
-// wf 101515 mike d added this condition for auto copy
-//wf 100685 miked still in development need to pass vars
-function ChangeCountry(ccode,cfun,cid)
-{
-buildurl = 'index.cfm?Fuseaction=ApplicationForm.LoadAddressByCountry&thiscountrycode='+ccode+'&function='+cfun+'&countryid='+cid+"&TempCountryCode="+ccode
-$.ajax({
-//this is the what we are hitting
-url: buildurl,
-//POST method is used
-type: "GET",
-//Do not cache the page
-cache: false,
-//success
-success: function(html){
-document.getElementById('BillingAddressSection').innerHTML=html;
-}
-});
-}
-</script>
-</form>
-<div class="ApplicationPayment_NextButtonBox" onclick="billSubmit(document.getElementById('billform'))" data-event="ev" data-category="ApplicationPayment_ProtectPayCreditCardForm" data-label="Submit" data-action="click"> 
-<table class="oa_butt">
-<tbody>
-<tr>
-<td style="text-align:center">  
-<input class="hide_butt hide_butt_Rht" type="button" align="center" name="NextButton" value="Process Order"> 
-</td>
+<table border="0" cellspacing="0" cellpadding="1" width="100%">
+<tbody><tr align="center" valign="bottom" class="InvoiceHeader">
+<th width="50%" align="left">Product</th>
+<th width="30">Qty</th>
+<th>Item Price</th>
+<th>Total Price</th>
+</tr>
+<tr class="" valign="top">
 <td>
-<div class="arrow-right"></div>
+Slim, Accelerator+, Block Combo<br>
+</td>
+<td align="center">1</td>
+<td align="right">134.95</td>
+<td align="right">134.95</td>
+</tr>
+<tr align="center">
+<td colspan="3" class="InvoiceTotals">&nbsp;</td>
+<td colspan="2" align="right" class="InvoiceTotals" valign="top">
+Subtotal: US$134.95<br>
+Shipping: US$0.00<br>
+Tax: US$9.45<br>
 </td>
 </tr>
-</tbody>
-</table>
-</div>
-<div id="PrevButtonDiv" class="ApplicationPayment_PrevButtonBox" onclick="window.location.assign('index.cfm?Fuseaction=ApplicationPayment.ProcessForm')" data-event="ev" data-category="ApplicationPayment" data-label="Previous" data-action="click">  
-<table class="oa_butt">
-<tbody><tr>
-<td>
-<div class="arrow-left"></div>
-</td>
-<td style="text-align:center">  
-<input type="button" name="PrevButton" class="hide_butt hide_butt_Lft" value="Order Summary"> 
+<tr>
+<td colspan="7" align="right" class="InvoiceAmountDue" valign="top">
+Total Amount Paid:
+US$144.40<br>
 </td>
 </tr>
 </tbody></table>
 </div>
-<input type="hidden" id="logSubmit" value="index.cfm?FuseAction=ProtectPay.LogSubmit.cfm?TempToken=0f004ab8-a4b3-4f3f-a1e6-7dcb85047d29fb89225f-5de3-44b1-b9db-2dfcc2cfdc73&amp;PayerID=5083241002286482&amp;UserID=2021889&amp;ProfileID=549754&amp;CredentialID=54856875&amp;Params=ReturnURL%3Dhttps%253A%252F%252Fbackoffice%252Eplexusworldwide%252Ecom%252FApplication%252Findex%252Ecfm%253FFuseAction%253DApplicationPayment%252EProcessProtectPayCCForm%2526FromProtectPay%253D1%26AuthToken%3De3459551%2D9f98%2D4beb%2Da4b5%2D48ade2c47eac%26PayerId%3D5083241002286482%26PaymentProcessType%3DCreditCard%26ProfileId%3D549754%26ProcessMethod%3DNone%26PaymentMethodStorageOption%3DAlways" tabindex="10">
+<br clear="all">
+<div class="SectionDivider ac_ac_WthHgtB">
+<div class="sectionTitle ac_ac_Left">
+Confirmation Backup #3061693
+</div>
+<div class="ac_ac_LftMarA">
+</div>
+<br clear="all">
+</div>
+<div class="sectioncontent ac_ac_LeftWidB">
+<style>
+.ac_ao_PadLft {
+padding-left: 15px;
+}
+</style>
+<table border="0" cellspacing="0" cellpadding="1" width="100%">
+<tbody><tr align="center" valign="bottom" class="InvoiceHeader">
+<th width="50%" align="left">Product</th>
+<th width="30">Qty</th>
+<th>Item Price</th>
+<th>Total Price</th>
+</tr>
+<tr class="" valign="top">
+<td>
+Slim, Accelerator+, Block Combo<br>
+</td>
+<td align="center">1</td>
+<td align="right">134.95</td>
+<td align="right">134.95</td>
+</tr>
+<tr align="center">
+<td colspan="2" class="InvoiceTotals">&nbsp;</td>
+<td colspan="2" align="right" class="InvoiceTotals" valign="top">
+Subtotal: US$134.95<br>
+Shipping: US$5.71<br>
+Tax: US$11.81<br>
+</td>
+</tr>
+<tr>
+<td colspan="6" align="right" class="InvoiceAmountDue" valign="top">
+Total Amount Due:
+US$152.47<br>
+</td>
+</tr>
+</tbody></table>
+</div>
+<br clear="all">
+<br clear="all">
+<br clear="all">
 <br clear="all">
 </div>
 </div>
@@ -909,21 +423,4 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </script>
 
 
-<div class="tooltiplarge" style="display: none; position: absolute; top: 412.312px; left: 536.875px;">
-<table id="PPCC_CVVHelpTable" class="PPCC_CVVHelpTable">
-<tbody><tr>
-<td colspan="2" align="center" valign="top">
-<table>
-<tbody><tr>
-<td width="192">  
-<img src="Themes/cv_card.gif" width="192" height="122" border="0" alt=""><br> 
-</td>
-<td width="192">  
-<img src="Themes/cv_amex.gif" width="192" height="122" border="0" alt=""><br> 
-</td>
-</tr>
-</tbody></table>
-</td>
-</tr>
-</tbody></table>
-</div></body></html>
+</body></html>
