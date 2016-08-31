@@ -9,7 +9,7 @@ app.get('/ShoppingCart/index.cfm',
   (req, res) => res.sendFile('plexus_review.html', { root: './pages' })
 );
 
-app.get('/test',
+app.get('/Application/index.cfm',
   (req, res) => res.sendFile('preferred_confirmation.html', { root: './pages' })
 );
 
