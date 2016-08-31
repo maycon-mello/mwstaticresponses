@@ -9,4 +9,6 @@ app.get('/ShoppingCart/index.cfm',
   (req, res) => res.sendFile('plexus_review.html', { root: './pages' })
 );
 
-app.listen(80, () => console.log('Server running on port 9090'));
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => console.log(`Server running on port ${port}`));
