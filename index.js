@@ -6,7 +6,7 @@ app.use(express.static('public'));
 app.get('/', (req, res) => res.end('Server is running'));
 
 
-app.get('/ShoppingCart/index.cfm?page=step5',
+app.get('/ShoppingCart/index',
   (req, res) => res.sendFile('retail_confirmation.html', { root: './pages' })
 );
 
