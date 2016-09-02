@@ -16,7 +16,7 @@ Plexus Evo
 <link rel="stylesheet" type="text/css" href="https://backoffice.plexusworldwide.com/skins/skin01/css/datatable.css"> 
 <link rel="stylesheet" type="text/css" href="https://backoffice.plexusworldwide.com/evo/datepick/jquery.datepick.css">
 <link rel="stylesheet" type="text/css" href="https://backoffice.plexusworldwide.com/evo/css/jquery.jscrollpane.css">
-<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/scripts/header.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/scripts/header.js"></script>
 <script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/scripts/sorttable.js"></script><script id="__ie_onload" defer=""></script>
 <script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/scripts/AC_RunActiveContent.js"></script>
 <script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/scripts/AC_Flash.js"></script>
@@ -63,66 +63,6 @@ ajaxLoadPage(this_url,divlayer,0,'','');
 <script type="text/javascript" src="https://backoffice.plexusworldwide.com/skins/skin01/scripts/jquery.dcjqaccordion.2.8.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://backoffice.plexusworldwide.com/skins/skin01/css/shoppingcart_style.css">
 <link rel="stylesheet" type="text/css" href="https://backoffice.plexusworldwide.com/ShoppingCart/css/retail_style.css">
-<script async="" src="//www.google-analytics.com/analytics.js"></script>
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-57670273-1', 'auto' );
-ga('send', 'pageview');
-</script>
-<script>
-function addEventListeners(){
-for(i = 0; i < frames.length; i ++)
-{
-$('[data-event="ev"]', frames[i].document).unbind('click.tracking').bind('click.tracking',trackEvent);
-$('[data-event="select"]', frames[i].document).unbind('change.tracking').bind('change.tracking',changeTrackEvent);
-}
-$('[data-event="ev"]').unbind('click.tracking').bind('click.tracking',trackEvent);
-$('[data-event="select"]').unbind('change.tracking').bind('change.tracking',changeTrackEvent);
-setTimeout(addEventListeners,500);
-}
-function changeTrackEvent(){
-var trackCat = $(this).data('category') ? $(this).data('category') : '';
-var trackAct = $(this).data('action') ? $(this).data('action') : '';
-var trackLab = $(this).data('label') ? $(this).data('label') : '';
-var trackVal = this.options.selectedIndex ? this.options.selectedIndex : 0;
-try{
-ga('send', {
-hitType: 'event',
-eventCategory : trackCat,
-eventAction : trackAct,
-eventLabel : trackLab,
-eventValue : trackVal
-});
-}
-catch (e)
-{
-console.log(e);
-}
-}
-function trackEvent(){
-var trackCat = $(this).data('category') ? $(this).data('category') : '';
-var trackAct = $(this).data('action') ? $(this).data('action') : '';
-var trackLab = $(this).data('label') ? $(this).data('label') : '';
-var trackVal = $(this).data('value') ? $(this).data('value') : 1;
-try{
-ga('send', {
-hitType: 'event',
-eventCategory : trackCat,
-eventAction : trackAct,
-eventLabel : trackLab,
-eventValue : trackVal
-});
-}
-catch (e)
-{
-console.log(e);
-}
-}
-addEventListeners();
-</script>
 <style>
 body { background-image: url('https://backoffice.plexusworldwide.com/images/template1/../../skins/skin01/images/atomic_bg.png');background-repeat: repeat-x; }
 </style>
@@ -143,7 +83,7 @@ body { background-image: url('https://backoffice.plexusworldwide.com/images/temp
 </div>
 <div id="bc">
 <span id="bc-welcome">
-<a data-event="ev" data-category="Header" data-label="ProfileDropdownIcon" data-action="click" href="javascript:;" onclick="var pd = document.getElementById('profile_dropdown');if(pd.style.display!='none'){pd.style.display='none';}else{pd.style.display='block';}">Green, Michael - 2030379<img src="/skins/skin01/images/down_arrow.png" style="padding-left:4px"></a>
+<a data-event="ev" data-category="Header" data-label="ProfileDropdownIcon" data-action="click" href="javascript:;" onclick="var pd = document.getElementById('profile_dropdown');if(pd.style.display!='none'){pd.style.display='none';}else{pd.style.display='block';}">Green, Michael - 2030379<img src="//backoffice.plexusworldwide.com/skins/skin01/images/down_arrow.png" style="padding-left:4px"></a>
 </span>
 </div>
 <script type="text/javascript">
@@ -203,7 +143,7 @@ font-size:12px;
 <input type="hidden" name="FuseSubAction" value="SearchProducts">
 <input type="hidden" name="FuseDirectory" value="Search">
 <a data-event="ev" data-category="ShoppingCartSearchView" data-label="SearchFrontPage" data-action="click" href="javascript:;" onclick="document.getElementById('SearchFrontPage').submit();" style=" text-decoration: none;">
-<span class="magnifySearch"><img src="/skins/skin01/images/magnifySearch.png" width="25px"></span>
+<span class="magnifySearch"><img src="//backoffice.plexusworldwide.com/skins/skin01/images/magnifySearch.png" width="25px"></span>
 </a>
 <input class="standardsearchtext" placeholder="Search" type="text" name="search_text" id="search_text_front_page" onfocus="if(this.value == '&nbsp;Item Search') { this.value = ''; }" onblur="if(this.value == '') { this.value = '&nbsp;Item Search'; }" value="&nbsp;Item Search" onkeyup="checklookup(this.value,'ToID',this.id);">
 <div class="suggestionsBox" id="suggestions" style="position: absolute; left:42px; display: none;">
@@ -212,7 +152,7 @@ font-size:12px;
 </div>
 <div class="small-cart">
 <a data-event="ev" data-category="ShoppingCartSearchView" data-label="ViewCart" data-action="click" href="index.cfm?FuseAction=Modules.CartContents_ViewCart&amp;Return=Home&amp;MenuKey=EVOShoppingCart&amp;MenuParent=SUB_Shopping" style="margin:0px 4px;">
-<img src="/ShoppingCart/images/small-cart.png" id="CartInfo" style="vertical-align:middle;padding-bottom:6px;" onmouseover="showMeCommunity(event);if (document.getElementById('OrderSummaryTotalsChanged')) { document.getElementById('OrderSummaryTotalsChanged').style.display='none'; }" onmouseout="hideMeMouseOut();return false;">
+<img src="//backoffice.plexusworldwide.com/ShoppingCart/images/small-cart.png" id="CartInfo" style="vertical-align:middle;padding-bottom:6px;" onmouseover="showMeCommunity(event);if (document.getElementById('OrderSummaryTotalsChanged')) { document.getElementById('OrderSummaryTotalsChanged').style.display='none'; }" onmouseout="hideMeMouseOut();return false;">
 <div id="CartCounter" class="shop_counter" style="display:none;">
 <span id="CartCounterDisplay" style="display:none;">0</span>
 </div>
@@ -225,7 +165,7 @@ font-size:12px;
 <div id="cartdropdown_contents" style="padding: 5px; left: 946.5px; top: 480px;"><div id="cartdropdown_itemrow">
 <span class="nav-bold" style="padding-left:3px;">Your Shopping Cart is empty.</span>
 <br>Home<br>
-<input type="button" onclick="window.location='index.cfm?FuseAction=Modules.CartContents_ViewCart&amp;Return=Home&amp;MenuKey=EVOShoppingCart&amp;MenuParent=SUB_Shopping';" name="AddtoCart" class="amz-bigbutt" value="View Cart (0 items)"> 
+<input type="button" onclick="window.location='//backoffice.plexusworldwide.com/index.cfm?FuseAction=Modules.CartContents_ViewCart&amp;Return=Home&amp;MenuKey=EVOShoppingCart&amp;MenuParent=SUB_Shopping';" name="AddtoCart" class="amz-bigbutt" value="View Cart (0 items)"> 
 <div style="clear:both;"></div>
 </div>
 </div>
