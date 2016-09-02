@@ -66,7 +66,7 @@ ajaxLoadPage(this_url,divlayer,0,'','');
 <style>
 body { background-image: url('https://backoffice.plexusworldwide.com/images/template1/../../skins/skin01/images/atomic_bg.png');background-repeat: repeat-x; }
 </style>
-<script type="text/Javascript" src="/evo/scripts/evo_distfind.js"></script></head>
+<script type="text/Javascript" src="//backoffice.plexusworldwide.com/evo/scripts/evo_distfind.js"></script></head>
 <body>
 <div class="page" id="page">
 <header id="section-header">
@@ -199,64 +199,6 @@ ajaxLoadPage('index.cfm?fuseaction=Modules.Search_CartContents','cartdropdown_co
 </div>
 </form>
 <script src="/evo/scripts/evo_distfind.js" language="JavaScript" type="text/javascript"></script>
-<script>
-var LastStringProcessed="";
-function checklookup(val,toid,id) {
-if (val != LastStringProcessed)
-lookup3SC(val,toid,id);
-else
-KillHit=0;
-}
-//for adding an id to a note
-var lookup3SCEventID = 0;
-KillHit=0;
-function lookup3SC(inputString,fieldname){
-var id = (typeof arguments[2] == 'undefined') ? '' : arguments[2];
-$('#suggestions').hide();
-if (lookup3SCEventID != 0) { clearTimeout(lookup3SCEventID); }
-lookup3SCEventID = setTimeout("lookup3SCEvent('"+inputString.replace(/'/g,"\\'")+"','"+fieldname+"','"+id+"');", 1000);
-}
-function lookup3SCEvent(inputString,fieldname,id,clickfunction) {
-var this_url='index.cfm?FuseAction=Modules.Search_AutoComplete&fieldname='+fieldname + '&clickcallfunction=fillsearchfrontpage';
-LastStringProcessed=inputString;
-if(inputString.length == 0) {
-// Hide the suggestion box.
-$('#suggestions').hide();
-} else {
-if (id != '') { $('#'+id).addClass('loadbar'); }
-$.post(this_url, {queryString: ""+inputString+""}, function(data){
-if(data.length >0) {
-position = $('#search_text_front_page').position();
-if (KillHit == 0) {
-$('#suggestions').css({
-left: (position.left) + "px"
-});
-$('#suggestions').show();
-$('#autoSuggestionsList').html(data);
-if (id != '') {
-$('#' + id).removeClass('loadbar');
-}
-}
-else
-KillHit=0;
-}
-});
-}
-} // lookup
-function fillsearchfrontpage(thisname,thisitemcode,thiscategoryid) {
-/*if (thisNumber) {
-//alert(thisString);
-//alert(thisNumber);
-document.getElementById('inputString').value=thisNumber;
-}*/
-hidesuggestions();
-parent.window.location='index.cfm?FuseAction=CategoryShop&CategoryID=' + thiscategoryid;
-}
-function hidesuggestions(){
-if (document.getElementById('suggestions'))
-setTimeout("$('#suggestions').hide();", 200);
-}
-</script>
 </div>
 </div>
 </div>
@@ -481,27 +423,7 @@ setTimeout(function(){settooltipheights();},200);
 </footer> 
 </div>
 <div id="overlay" style="position:absolute;z-index:1000;top:0px;left:0px;width:2000px;height:2000px;background-color:#333333;opacity:.8;filter:alpha(opacity=80);display:none"> </div>
-<script>
-if (typeof jQuery != 'undefined' && $('.scroll-pane') && typeof $('.scroll-pane').jScrollPane == 'function') {
-$('.scroll-pane').jScrollPane({autoReinitialise: true});
-}
-if (typeof EVOModulesArray != 'undefined') {
-ModListLoad();
-ModListLoad();
-ModListLoad();
-ModListLoad();
-ModListLoad();
-}
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-57670273-1']);
-_gaq.push(['_trackPageview']);
-(function() {
-var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-</script>
 
  
-<script language="JavaScript" type="text/javascript" src="/evo/scripts/jquery-ui.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="//backoffice.plexusworldwide.com/evo/scripts/jquery-ui.min.js"></script>
 </body></html>
