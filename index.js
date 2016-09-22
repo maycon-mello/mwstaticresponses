@@ -7,8 +7,12 @@ app.get('/', (req, res) => res.end('Server is running'));
 
 
 app.get('/ShoppingCart/index.cfm',
-  (req, res) => res.sendFile('loggedIn_confirmation.html', { root: './pages' })
+  (req, res) => res.sendFile('ambassador_confirmation.html', { root: './pages' })
 );
+
+// app.get('/ShoppingCart/index.cfm',
+//   (req, res) => res.sendFile('loggedIn_confirmation.html', { root: './pages' })
+// );
 
 // app.get('/ShoppingCart/index.cfm',
 //   (req, res) => res.sendFile('retail_confirmation.html', { root: './pages' })
