@@ -1,0 +1,399 @@
+<html><head><title>Plexus</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/api2/r20160921114513/recaptcha__en.js"></script><script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/scripts/header.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/scripts/sorttable.js"></script><script id="__ie_onload" defer=""></script>
+<script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/scripts/AC_RunActiveContent.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/scripts/AC_Flash.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/scripts/swfobject.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/scripts/ajax.js?v=1.0"></script>
+<script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/openwysiwyg/wysiwyg.js"></script><link rel="stylesheet" type="text/css" href="https://backoffice.plexusworldwide.com/openwysiwyg/styles/styles.css">
+
+<script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/scripts/copyaddress.js"></script>
+<script src="https://backoffice.plexusworldwide.com/scripts/functions.js" language="JavaScript" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/evo/scripts/jquery-1.7.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/evo/scripts/jquery.tools.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/evo/scripts/evo_events_popup.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/evo/scripts/evo.js?v=1.3"></script>
+<script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/evo/datepick/jquery.datepick.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/evo/scripts/jquery.jscrollpane.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://backoffice.plexusworldwide.com/evo/scripts/jquery.mousewheel.js"></script>
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<style> 
+.ao_aot_Right {float:right;}
+.at_at_Pad {padding:2px;}
+.ApplicationPayment_PaymentInformation {float:left}
+.ApplicationPayment_PaymentTypesRightOfHeader {float:left;margin:6px 0px 0px 10px;}
+.ApplicationPayment_PaymentTypesAboveAddressForm {width:250px;margin-top:-5px;}
+.ApplicationPayment_AddressForm {float:left;width:400px;}
+.ApplicationPayment_PaymentTypesBox {float:left;width:440px;margin: 15px 0px 0px 30px;}
+.ApplicationPayment_PrivacySecureSocketLayer {font-style:italic;}
+.ApplicationPayment_ButtonsRow {width:100%;margin-top:40px;}
+.ApplicationPayment_NextButtonBox {float:right;margin-right:30px;}
+.ApplicationPayment_PrevButtonBox {}
+.BankWireForm_InfoBox {margin:0 20px 20px 20px;}
+.BankWireForm_Instructions {font-weight:bold}
+.BankWireForm_InfoForm {float:left;margin-right:20px}
+.BankWireForm_BankInfo {float:left}
+.BankWirePrintForm_content {margin:0 20px 20px 20px}
+.BankWirePrintForm_Instructions {font-weight:bold}
+.BankWirePrintForm_InfoForm {float:left;margin-right:20px}
+.BankWirePrintForm_BankInfo {float:left}
+.ECheckForm_IDInfo {font-weight:bold}
+.ECheckForm_BankInfo {font-weight:bold}
+.ECheckForm_CheckImg {text-align:center}
+.EVOCC_PaymentInformationTitle {float:left}
+.EVOCC_PaymentInformationBreak {float:left;margin:6px 0px 0px 10px;}
+.EVOCC_ExpMonth {width:40px}
+.EVOCC_ExpYear {width:50px}
+.EVOCC_ExpDivider {margin:6px 0}
+.EVOCC_CVVHelpTable {padding-left: 20px;}
+.EVOCC_ProcessOrderButtonRow {float:left;margin-left:30px;}
+.APInvoices_OrderSummaryTitle {font-weight:bold;font-size:20px}
+.APInvoices_CurrentOrderTitle {float:left}
+.APInvoices_CurrentOrderBreak {float:left;margin:6px 0px 0px 10px;}
+.sectioncontent { padding:0px;}
+.APInvoices_AutoShipTitle {float:left}
+.APInvoices_AutoShipSection {float:left;padding:10px 0 0 5px;}
+.APInvoices_AutoShipBreak {float:left;margin:6px 0px 0px 10px;}
+.CCForm_CardsBox {text-align: center; padding-top: 5px; padding-bottom: 20px;}
+.PPCC_PaymentInformationTitle { float:left;}
+.PPCC_PaymentInformationBreak {float:left;margin:6px 0px 0px 10px;}
+.PPCC_AgreeUseCardRenewal {padding: 17px 0px 10px 0px;}
+.PPCC_ExpMonth {width:40px}
+.PPCC_ExpYear {width:50px}
+.PPCC_ExpDivider {margin:6px 0}
+.PPCC_CVVHelpTable {padding-left: 20px;}
+.PPCC_ProcessOrderButtonRow {float:left;margin-left:30px;}
+.VOPackageInfo_OnlineAccountManagement {float:left}
+.ao_WthHgt {width:20px;height:20px;}
+.ao_Left {float:left;}
+.ao_LftMarHgt {float:left;margin-top:10px;min-height:90px;}
+.ao_Right {float:right;}
+.ao_WthHgtBrd {width:100px;height:35px;border:1px solid ##777;}
+.ao_DisNonHgt {display:none;height:50px;}
+.ao_LfMrWtHtVA {float:left;width:400px;vertical-align:middle;height:27px;}
+.ao_LftPadRht {float:left;padding-right:3px;}
+.ao_LftWthHgt {float:left;width:500px;height:50px;}
+.ao_ao_RhtPadLft {float:right;padding-left:10px;}
+.ao_ao_Left {float:left;}
+.ao_ao_LftMar {float:left;margin:6px 0px 0px 10px;}
+.ao_ao_WthMarTop {width:100%;margin-top:-40px;}
+.ao_ao_RhtMarRht {float:right;/*margin-right:30px;*/} /* WF:97921 */
+.ao_aot_MarBtm {margin-bottom:5px;}}
+.ao_fp_Hgt {height:40px;}
+.ao_fp_WthHgtA {width:20px;height:20px;}
+.ao_fp_WthHgtB {width:100px;height:25px;}
+.ao_fp_WthHgtC {width:100px;height:51px;}
+.ao_pd_ZIdxPos {z-index:5000px;postion:relative;} 
+.ao_pd_ZIdxTop {z-index:6000px;top:-10px;left:690px;width: 30px;height: 30px;cursor: pointer;position: absolute;} 
+.ao_pd_PadTLRB {padding-top:20px;padding-left:20px;padding-right:20px;padding-bottom:20px;} 
+.ao_pd_PadLR {padding-left:20px;padding-right:20px;}  
+.ao_pd_WthHgt {width:20px;height:20px;} 
+.ao_pd_PadTLRBBld {padding-top:5px;padding-bottom:20px;padding-left:20px;padding-right:20px;font-weight:bold;}  
+.ao_pd_PadLRWth {padding-left:20px;padding-right:20px;width:300px;}
+.ao_pd_Font {font-family:'Arial Bold', 'Arial';font-weight:bold;font-size:18px;}
+.ao_sukp_Hgt {height:40px;} 
+.ao_sukp_WthHgt {width:20px;height:20px;}
+.af_ac_Font {font-weight:bold;font-size:20px;}  
+.af_ac_Bold {font-weight:bold;} 
+.af_ac_RhtMarRhtBtm {float:right;margin-right:30px;margin-bottom:20px;}
+.af_ao_Color {color:red;}
+.af_as_Left {float:left;}
+.af_as_LftMar {float:left;margin:6px 0px 0px 10px;} 
+.af_as_LftWthA {float:left;width:400px;}  
+.af_as_LftWthB {float:left;width:440px;}  
+.af_as_MarBtm {margin-bottom:15px;}
+.af_af_WthMarTop {width:100%;margin-top:40px;}  
+.af_af_RhtMarRht {float:right;/*margin-right:40px;*/} /* WF:97921 */
+.af_aus_Lft {float:left;} 
+.af_aus_LftMar {float:left;margin:6px 0px 0px 10px;}
+.af_cis_DisNon {display:none;}  
+.af_cis_MinWth {min-width:70px;}  
+.af_cis_Wth {width:350px;}  
+.af_cis_Lft {float:left;} 
+.af_cis_LftWthB {float:left;width:440px;} 
+.af_cis_LftWthA {float:left;width:400px}
+.af_dds_Lft {float:left;} 
+.af_dds_LftMar {float:left;margin:6px 0px 0px 10px;}  
+.af_dds_LftWth {float:left;width:400px;}  
+.af_dds_Wth {width:125px;}
+.af_eas_Lft {float:left;} 
+.af_eas_LftMar {float:left;margin:6px 0px 0px 10px;}  
+.af_eas_Wth {width:18px;}
+.af_mam_MarLft {margin-left:108px;}
+.af_mam_PadBtm {padding-bottom:10px}
+.af_nas_Lft {float:left;} 
+.af_nas_LftMar {float:left;margin:6px 0px 0px 10px;}  
+.af_nas_LftWth {float:left;width:400px;}  
+.af_nas_Wth {width:18px}  
+.af_nas_PadRht {padding-right:0px;} 
+.af_nas_LftWthMarLft {float:left;width:400px;margin-left:40px;} 
+.af_nas_MarBtm {margin-bottom:15px;}
+.af_rs_BtnWth {width:110px;}
+.af_rs_Wth {width:500px;}
+.af_sg_Lft {float:left;}  
+.af_sg_LftMar {float:left;margin:6px 0px 0px 10px;} 
+.af_sg_Wth {width:800px;}
+.af_sg_WthMarTop {width:100%;margin-top:40px;}
+.af_sg_RhtMarRht {float:right;margin-right:30px;}
+.af_terms_Lft {float:left;}
+.af_terms_LftMat {float:left;margin:6px 0px 0px 10px;}  
+.af_terms_LftVAlWth {float:left;width:20px;vertical-align:top;} 
+.af_terms_LftWth {float:left;Width:520px;}  
+.af_terms_LftWthMarTop {float:left;width:520px;margin-top:10px;}
+.af_tvo_LftWthVAl {float:left;width:20px;vertical-align:top;} 
+.af_tvo_LftWth {float:left;width:520px;}  
+.af_tvo_Lft {float:left;} 
+.af_tvo_LftMar {float:left;margin:6px 0px 0px 10px;}
+.af_vos_Lft {float:left;} 
+.af_vos_LftMar {float:left;margin:6px 0px 0px 10px;}  
+.af_vos_LnHgt {line-height:30px;} 
+/*.af_vos_Wth {width:700px;}*/ /*noticed that vo section border not a wide a vo section content miked */
+.af_vos_PtnWth {width:110px;cursor:pointer;}
+.ac_ac_RhtPadMar {float:right;padding:10px;margin:10px;}
+.ac_ac_LftPad {float:left;padding:10px;}  
+.ac_ac_Bold {font-weight:bold;} 
+.ac_ac_WthHgtA {width:550px;height:46px;} 
+.ac_ac_WthHgtB {width:900px;height:46px;}
+.ac_ac_Left {float:left;} 
+.ac_ac_LftMarA {float:left;margin:6px 0px 0px 10px;}  
+.ac_ac_LftMarB {float:left;margin:16px 0px 0px 10px;} 
+.ac_ac_LftWidA {float:left;width:550px;}  
+.ac_ac_LftWidB {float:left;width:900px;}
+.ac_acpv_Wth {width:1200px;}
+.ac_ao_PadLft {padding-left: 15px;}
+.ac_oc_RhtPadMar {float:right;padding:10px;margin:10px;}
+.ac_oc_LftPadLft {padding-left:10px;float:left;}  
+.ac_oc_Bold {font-weight:bold;} 
+.ac_oc_WthHght {width:550px;height:46px;} 
+.ac_oc_Lft {float:left;}  
+.ac_oc_LftMarA {float:left;margin:6px 0px 0px 10px;}  
+.ac_oc_LftMarB {float:left;margin:16px 0px 0px 10px;} 
+.ac_oc_LftWthA {width:550px;float:left;}  
+.ac_oc_LftWthB {width:900px;float:left;}
+.aa_aa_FloatLeft {float:left;}
+.aa_aa_FloatLftM {float:left;margin:6px 0px 0px 10px;}
+.aa_aa_WideMTop {width:100%;margin-top:-40px;}
+.aa_aa_FloatRightM {float:right;margin-right:30px;}
+.aa_aap_DisplayNone {display:none;}
+</style>
+<link rel="stylesheet" type="text/css" href="https://backoffice.plexusworldwide.com/skins/skin01/css/style.css" title="style1">
+<script language="JavaScript">
+function popUp(url, width, height) {
+sealWin=window.open(url,"win",'toolbar=0,location=0,directories=0,status=1,menubar=1,scrollbars=1,resizable=1,width=' + width + ',height=' + height);
+self.name = "mainWin";
+}
+//Used in ApplicationForm
+function reveal(className, obj) {
+var $input = $(obj);
+if ($input.prop('checked')) $(className).show();
+else $(className).hide();
+}
+function isNumberCharacterOA(event) {
+var evt = event || window.event;
+if (evt.shiftKey){return false;}
+var charCode = (evt.which) ? evt.which : evt.keyCode;
+if (charCode === 8 || charCode === 46 || (charCode >= 48 && charCode <= 57) || (charCode >= 96 && charCode <= 105))
+{return true;}
+else
+{return false;}
+}
+</script>
+</head>
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+<div id="bg">
+<img src="https://backoffice.plexusworldwide.com/skins/skin01/images/bg.jpg" alt="">
+</div>
+<div id="Header">
+<div id="logo">
+<a href="http://backoffice.plexusworldwide.com"><img src="https://backoffice.plexusworldwide.com/skins/skin01/images/logo.png" alt="Plexus" border="0"></a>
+</div>
+<div id="order-total">
+</div>
+<div id="orderASH-total">
+</div>
+</div>
+<br clear="all">
+<br clear="all">
+<br clear="all">
+<br clear="all">
+<br clear="all">
+<br clear="all">
+<div id="bc">
+<ul id="breadcrumbs-three">
+<li class="bc_highlight"><a>Enrollment Options</a></li>
+<li class="bc_highlight"><a>Product Selection</a></li>
+<li class="bc_highlight"><a>Backup Order Selection</a></li>
+<li class="bc_highlight"><a>Personal Info</a></li>
+<li class="bc_highlight"><a>Order Summary</a></li>
+<li class="bc_highlight"><a>Payment Info</a></li>
+<li class="bc_highlight"><a>Confirmation</a></li>
+</ul>
+</div>
+<div class="Wrapper" id="Wrapper">
+<div class="MainContent">
+<style>
+.ac_ac_RhtPadMar {
+float:right;
+padding:10px;
+margin:10px;
+}
+.ac_ac_LftPad {
+float:left;
+padding:10px;
+}
+.ac_ac_Bold {
+font-weight:bold;
+}
+.ac_ac_WthHgtA {
+width:550px;
+height:46px;
+}
+.ac_ac_WthHgtB {
+width:900px;
+height:46px;
+}
+.ac_ac_Left {
+float:left;
+}
+.ac_ac_LftMarA {
+float:left;
+margin:6px 0px 0px 10px;
+}
+.ac_ac_LftMarB {
+float:left;
+margin:16px 0px 0px 10px;
+}
+.ac_ac_LftWidA {
+float:left;
+width:550px;
+}
+.ac_ac_LftWidB {
+float:left;
+width:900px;
+}
+</style>
+<div id="order_successful" class=" ac_ac_RhtPadMar">
+<h2 class="ReallyBig">Order Successful!</h2>
+<div class="ac_ac_LftPad">
+<span class="ac_ac_Bold">Payment Received</span><br>
+************3843
+</div>
+<br clear="all">
+<br clear="all">
+<div class="ac_ac_LftPad">
+<span class="ac_ac_Bold">Shipping Address</span><br>
+<nobr>Lisa Erickson </nobr><br> 9145 East Pima Center Parkway<br> Scottsdale, AZ, 85258<br> United States of America<br> <br>
+</div>
+<div class="ac_ac_LftPad">
+<span class="ac_ac_Bold">Billing Address</span><br>
+<nobr>Lisa Erickson </nobr><br> 9145 E Pima Center Pkwy<br> Scottsdale, AZ, 85258<br> United States of America<br> <br>
+4154260987<br>
+</div>
+</div>
+<h2 class="ReallyBig">Welcome Lisa Erickson!</h2>
+<div class="OA_WelcomeDistInfo">  
+Your Ambassador ID is <strong>2064961</strong>.
+<br><br>
+Your Username is <strong>tes1323qa</strong>.
+Please retain for your records. It is very important and you will use it to log in to your Evo.
+</div>  
+<div class="SectionDivider ac_ac_WthHgtA">
+<div class="sectionTitle ApplicationCompleteInstructionHeader ac_ac_Left">
+Evo Instructions
+</div>
+<div class="ac_ac_LftMarA">
+</div>
+<br clear="all">
+</div>
+<div class="sectioncontent ac_ac_LftWidA">
+You can log in to your Backoffice by clicking on the link below. Your username is the Ambassador ID given at the top of this page. Your password is the one you chose earlier while signing up.
+<div id="vologin">
+<div id="vologtxt"><a href="https://backoffice.plexusworldwide.com/index.cfm?Fuse=ProcessLogin&amp;key=%2F2IN%5C%5F%40%3EK%23%28R%27P4%3E%201XD%2A%0A">Log in Now!</a></div>
+</div>
+</div>
+<br clear="all">
+<div class="SectionDivider ac_ac_WthHgtA">
+<div class="sectionTitle ac_ac_Left">
+Confirmation Order #85571152
+</div>
+<div class="ac_ac_LftMarA">
+</div>
+<br clear="all">
+</div>
+<div class="sectioncontent ac_ac_LeftWidB">
+<style>
+.ac_ao_PadLft {
+padding-left: 15px;
+}
+</style>
+<table border="0" cellspacing="0" cellpadding="1" width="100%">
+<tbody><tr align="center" valign="bottom" class="InvoiceHeader">
+<th width="50%" align="left">Product</th>
+<th width="30">Qty</th>
+<th>Item Price</th>
+<th>Total Price</th>
+</tr>
+<tr class="" valign="top">
+<td>
+Annual Membership/Replicated Website/Web Host<br>
+</td>
+<td align="center">1</td>
+<td align="right">34.95</td>
+<td align="right">34.95</td>
+</tr>
+<tr class="" valign="top">
+<td>
+P96 Chocolate<br>
+</td>
+<td align="center">1</td>
+<td align="right">22.95</td>
+<td align="right">22.95</td>
+</tr>
+<tr class="" valign="top">
+<td>
+Bio Cleanse 120<br>
+</td>
+<td align="center">1</td>
+<td align="right">19.95</td>
+<td align="right">19.95</td>
+</tr>
+<tr align="center">
+<td colspan="3" class="InvoiceTotals">&nbsp;</td>
+<td colspan="2" align="right" class="InvoiceTotals" valign="top">
+Subtotal: US$77.85<br>
+Shipping: US$0.00<br>
+Tax: US$5.00<br>
+</td>
+</tr>
+<tr>
+<td colspan="7" align="right" class="InvoiceAmountDue" valign="top">
+Total Amount Paid:
+US$82.85<br>
+</td>
+</tr>
+</tbody></table>
+</div>
+<br clear="all">
+<br clear="all">
+<br clear="all">
+<br clear="all">
+</div>
+</div>
+
+<br clear="all">  
+<div id="overlay2" class="overlay_layer2" style="position:absolute;z-index:1000px;top:0px;left:0px;width:2000px;height:2000px;background-color:#333333;opacity:.8;filter:alpha(opacity=80);display:none;"> </div>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-57670273-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+</body></html>

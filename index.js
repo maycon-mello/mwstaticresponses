@@ -21,7 +21,6 @@ app.get('/Application/index.cfm',
   (req, res) => res.sendFile('preferred_confirmation.html', { root: './pages' })
 );
 
-
 app.get('/test',
   (req, res) => res.sendFile('test.html', { root: './pages' })
 );
