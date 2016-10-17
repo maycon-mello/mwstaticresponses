@@ -25,6 +25,10 @@ app.get('/test',
   (req, res) => res.sendFile('test.html', { root: './pages' })
 );
 
+app.get('/test_json',
+  (req, res) => res.sendFile('test_json.json', { root: './pages' })
+);
+
 const port = process.env.PORT || 4000;
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
